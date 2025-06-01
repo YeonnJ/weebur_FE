@@ -2,13 +2,20 @@ import qs from "query-string";
 
 interface FetchCommonProps {
   url: string;
-  params?: Record<string, unknown>;
   options?: RequestInit;
+}
+
+interface FetchGetProps extends FetchCommonProps {
+  params: Record<string, unknown>;
+}
+
+interface FetchPostProps<D> extends FetchCommonProps {
+  data: D;
 }
 
 const getUrl = (
   url: FetchCommonProps["url"],
-  params: FetchCommonProps["params"] = {}
+  params: FetchGetProps["params"] = {}
 ) => {
   const stringifiedParams = qs.stringify(params, {
     skipNull: true,
@@ -19,18 +26,13 @@ const getUrl = (
 };
 
 export const fetchAPI = {
-  get: async <T>({ url, params, options }: FetchCommonProps): Promise<T> => {
+  get: async <T>({ url, params, options }: FetchGetProps): Promise<T> => {
     return fetch(getUrl(url, params), { method: "GET", ...options }).then(
       (res) => res.json()
     );
   },
-  post: async <T, D>({
-    url,
-    params,
-    data,
-    options,
-  }: FetchCommonProps & { data: D }): Promise<T> => {
-    return fetch(getUrl(url, params), {
+  post: async <T, D>({ url, data, options }: FetchPostProps<D>): Promise<T> => {
+    return fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
