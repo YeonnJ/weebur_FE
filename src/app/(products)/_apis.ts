@@ -1,7 +1,13 @@
+import { fetchAPI } from "@/utils/fetchApi";
 import { ProductResponse } from "./_types";
 
 export const productApis = {
-  getProducts: async (): Promise<ProductResponse> => {
-    return fetch("https://dummyjson.com/products").then((res) => res.json());
+  getProducts: async () => {
+    return fetchAPI.get<ProductResponse>({
+      url: "https://dummyjson.com/products",
+      params: {
+        limit: 20,
+      },
+    });
   },
 } as const;
