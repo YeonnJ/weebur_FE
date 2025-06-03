@@ -1,18 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ProductList from "./_components/productList/ProductList";
-import { ProductViewMode } from "./_types";
+import { useProductViewMode } from "@/hooks/useProductViewMode";
 
 const ProductsMainPage = () => {
-  const [viewMode, setViewMode] = useState<ProductViewMode>("grid");
+  const viewMode = useProductViewMode();
 
-  useEffect(() => {
-    /** 24시간마다 랜덤으로 뷰모드 변경해주기 */
-    setViewMode("grid");
-  }, []);
-
-  return <ProductList viewMode={viewMode} />;
+  return <>{viewMode !== null && <ProductList viewMode={viewMode} />}</>;
 };
-
 export default ProductsMainPage;

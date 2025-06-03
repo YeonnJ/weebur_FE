@@ -41,7 +41,7 @@ export interface ProductResponse {
   products: Product[];
 }
 
-export type ProductViewMode = "list" | "grid";
+export type ProductViewMode = "list" | "grid" | null;
 
 export interface ProductListItemProps {
   viewMode: ProductViewMode;
