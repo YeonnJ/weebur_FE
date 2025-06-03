@@ -51,3 +51,15 @@ export interface ProductListItemProps {
 export interface ProductListProps {
   viewMode: ProductViewMode;
 }
+
+export interface ProductRequestBody {
+  title: string;
+  description: string;
+  price: number;
+  discountPercentage?: number;
+  brand: "Apple" | "Samsung" | "Weebur";
+}
+
+export interface Error {
+  msg: string;
+}
