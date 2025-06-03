@@ -13,12 +13,27 @@ export const baseContainer = style({
 });
 
 export const itemContainer = styleVariants({
-  list: [baseContainer, { background: "white" }],
-  grid: [baseContainer, { background: "white" }],
+  list: [baseContainer],
+  grid: [baseContainer, { flexDirection: "column" }],
+});
+
+export const itemContent = styleVariants({
+  list: [],
+  grid: [{ padding: "10px" }],
+});
+
+export const description = style({
+  color: "rgb(130 130 130)",
+  fontSize: "14px",
+  fontWeight: 500,
+});
+
+export const itemDescription = styleVariants({
+  list: [description],
+  grid: [description, { height: "90px", overflow: "auto" }],
 });
 
 export const thumbnail = style({
-  marginRight: "10px",
   padding: "4px",
 });
 
@@ -26,12 +41,10 @@ export const title = style({
   fontSize: "16px",
   fontWeight: 600,
   color: "rgb(32, 39, 49)",
-});
-
-export const description = style({
-  color: "rgb(130 130 130)",
-  fontSize: "14px",
-  fontWeight: 500,
+  whiteSpace: "nowrap",
+  overflow: "hidden",
+  textOverflow: "ellipsis",
+  maxWidth: "260px",
 });
 
 export const rating = style({

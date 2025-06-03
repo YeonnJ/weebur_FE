@@ -20,6 +20,13 @@ const baseListContainer = style({
 });
 
 export const listContainer = styleVariants({
-  list: [baseListContainer, { background: "white" }],
-  grid: [baseListContainer, { background: "white" }],
+  list: [baseListContainer],
+  grid: [
+    baseListContainer,
+    {
+      display: "grid",
+      gridTemplateColumns: "repeat(4, 1fr)",
+      gap: "20px",
+    },
+  ],
 });
