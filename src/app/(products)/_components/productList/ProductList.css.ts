@@ -8,6 +8,7 @@ export const container = style({
   alignItems: "flex-end",
   margin: "0 auto",
   maxWidth: "1200px",
+  marginTop: "50px",
 });
 
 const baseListContainer = style({

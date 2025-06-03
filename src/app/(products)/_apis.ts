@@ -1,5 +1,5 @@
 import { fetchAPI } from "@/utils/fetchAPI";
-import { ProductResponse } from "./_types";
+import { ProductRequestBody, ProductResponse } from "./_types";
 
 export const productApis = {
   getProducts: async () => {
@@ -8,6 +8,12 @@ export const productApis = {
       params: {
         limit: 20,
       },
+    });
+  },
+  postProducts: async (data: ProductRequestBody) => {
+    return fetchAPI.post({
+      url: "https://dummyjson.com/products/add",
+      data,
     });
   },
 } as const;
