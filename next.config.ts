@@ -4,7 +4,10 @@ import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin";
 const withVanillaExtract = createVanillaExtractPlugin();
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    domains: ["cdn.dummyjson.com"],
+    formats: ["image/webp"],
+  },
 };
 
 export default withVanillaExtract(nextConfig);

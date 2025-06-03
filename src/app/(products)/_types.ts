@@ -40,3 +40,14 @@ export interface ProductResponse {
   total: number;
   products: Product[];
 }
+
+export type ProductViewMode = "list" | "grid";
+
+export interface ProductListItemProps {
+  viewMode: ProductViewMode;
+  item: Product;
+}
+
+export interface ProductListProps {
+  viewMode: ProductViewMode;
+}

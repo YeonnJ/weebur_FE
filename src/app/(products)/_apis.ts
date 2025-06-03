@@ -1,4 +1,4 @@
-import { fetchAPI } from "@/utils/fetchApi";
+import { fetchAPI } from "@/utils/fetchAPI";
 import { ProductResponse } from "./_types";
 
 export const productApis = {
