@@ -5,11 +5,11 @@ import ProductList from "./_components/productList/ProductList";
 import { ProductViewMode } from "./_types";
 
 const ProductsMainPage = () => {
-  const [viewMode, setViewMode] = useState<ProductViewMode>("list");
+  const [viewMode, setViewMode] = useState<ProductViewMode>("grid");
 
   useEffect(() => {
     /** 24시간마다 랜덤으로 뷰모드 변경해주기 */
-    setViewMode("list");
+    setViewMode("grid");
   }, []);
 
   return <ProductList viewMode={viewMode} />;

@@ -16,15 +16,27 @@ const ProductListItem = ({ item, viewMode }: ProductListItemProps) => {
     >
       <Image
         src={item?.thumbnail || "/"}
-        width={200}
-        height={200}
+        width={150}
+        height={150}
         alt="thumbnail"
         className={styles.thumbnail}
       />
 
-      <div>
+      <div
+        className={
+          isListView ? styles.itemContent["list"] : styles.itemContent["grid"]
+        }
+      >
         <h1 className={styles.title}>{item?.title || ""}</h1>
-        <h2 className={styles.description}>{item?.description || ""}</h2>
+        <h2
+          className={
+            isListView
+              ? styles.itemDescription["list"]
+              : styles.itemDescription["grid"]
+          }
+        >
+          {item?.description || ""}
+        </h2>
         <p className={styles.rating}>
           {item?.rating || 0}
           <span className={styles.reviews}>
