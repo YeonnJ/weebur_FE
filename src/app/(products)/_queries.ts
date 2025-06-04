@@ -15,7 +15,7 @@ export const useProductsQuery = () => {
   });
 };
 
-export const useProductMutation = () => {
+export const useCreateProductMutation = () => {
   return useMutation({
     mutationFn: productApis.postProducts,
   });
