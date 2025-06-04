@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { ProductRequestBody } from "@/app/(products)/_types";
 import FormInput from "./_components/formInput/FormInput";
 import RadioGroup from "./_components/radioGroup/RadioGroup";
-import { useCreateProduct } from "../_queries";
+import { useCreateProductMutation } from "../_queries";
 import * as styles from "./page.css";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button/Button";
@@ -18,11 +18,11 @@ const CreateProductPage = () => {
   } = useForm<ProductRequestBody>({
     mode: "onChange",
   });
-  const { mutate: create } = useCreateProduct();
+  const createProductMutation = useCreateProductMutation();
   const router = useRouter();
 
   const onSubmit = (data: ProductRequestBody) => {
-    create(data, {
+    createProductMutation.mutate(data, {
       onSuccess: () => {
         router.push("/");
       },
