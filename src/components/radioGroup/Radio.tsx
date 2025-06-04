@@ -24,27 +24,21 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
         : props.defaultChecked;
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (groupContext?.register?.onChange) {
-        groupContext.register.onChange(e);
-        return;
-      }
-
       if (groupContext?.onChange) {
-        groupContext?.onChange(e);
+        groupContext.onChange(e);
         return;
       }
 
       if (props?.onChange) {
-        props?.onChange(e);
+        props.onChange(e);
       }
     };
 
     return (
       <label className={styles.label}>
         <input
+          ref={ref}
           {...props}
-          {...groupContext?.register}
-          ref={groupContext?.register?.ref ?? ref}
           type="radio"
           name={nameToUse}
           checked={checkedToUse}
