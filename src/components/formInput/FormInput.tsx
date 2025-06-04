@@ -1,17 +1,16 @@
 // components/FormInput.tsx
-import { FieldError, UseFormRegisterReturn } from "react-hook-form";
+import { FieldError } from "react-hook-form";
 import * as styles from "./FormInput.css";
 import clsx from "clsx";
 import { forwardRef } from "react";
 
 interface FormInputProps extends React.ComponentPropsWithoutRef<"input"> {
-  register: UseFormRegisterReturn;
   label?: string;
   error?: FieldError;
 }
 
 const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
-  ({ type = "text", register, error, required, label, ...props }, ref) => {
+  ({ type = "text", error, required, label, ...props }, ref) => {
     return (
       <label>
         {!!label && (
@@ -23,9 +22,8 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 
         <input
           {...props}
-          {...register}
           type={type}
-          ref={register?.ref ?? ref}
+          ref={ref}
           className={clsx(styles.input, props.className)}
         />
         {!!error && <p className={styles.error}>{error.message}</p>}
