@@ -15,7 +15,7 @@ export const button = style({
       backgroundColor: "#0059c1",
     },
     "&:disabled": {
-      backgroundColor: "#999",
+      backgroundColor: "#c9c9c9",
       cursor: "not-allowed",
     },
   },
