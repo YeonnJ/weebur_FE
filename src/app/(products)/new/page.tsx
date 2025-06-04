@@ -7,7 +7,8 @@ import { useCreateProductMutation } from "../_queries";
 import * as styles from "./page.css";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button/Button";
-import RadioGroup from "./_components/radioGroup/RadioGroup";
+import RadioGroup from "../../../components/radioGroup/RadioGroup";
+import Radio from "@/components/radioGroup/Radio";
 
 const ProductNewPage = () => {
   const {
@@ -96,16 +97,14 @@ const ProductNewPage = () => {
       />
 
       <RadioGroup
-        required={true}
+        label="브랜드"
         name="brand"
-        register={register("brand")}
-        defaultValue="Weebur"
-        options={[
-          { label: "Apple", value: "Apple" },
-          { label: "Samsung", value: "Samsung" },
-          { label: "Weebur", value: "Weebur" },
-        ]}
-      />
+        register={register("brand", { value: "Weebur" })}
+      >
+        <Radio label="Apple" value="Apple" />
+        <Radio label="Samsung" value="Samsung" />
+        <Radio label="Weebur" value="Weebur" />
+      </RadioGroup>
 
       {price && (
         <div className={styles.resultPrice}>

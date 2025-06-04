@@ -22,10 +22,10 @@ const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
         )}
 
         <input
-          {...register}
           {...props}
-          ref={ref}
+          {...register}
           type={type}
+          ref={register?.ref ?? ref}
           className={clsx(styles.input, props.className)}
         />
         {!!error && <p className={styles.error}>{error.message}</p>}
