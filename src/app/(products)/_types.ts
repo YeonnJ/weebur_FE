@@ -59,7 +59,3 @@ export interface ProductRequestBody {
   discountPercentage?: number;
   brand: "Apple" | "Samsung" | "Weebur";
 }
-
-export interface Error {
-  msg: string;
-}
