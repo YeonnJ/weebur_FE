@@ -3,12 +3,12 @@ import * as styles from "./Radio.css";
 import { RadioGroupContext } from "./RadioGroup";
 import clsx from "clsx";
 
-interface RadioProps extends React.ComponentPropsWithoutRef<"input"> {
+interface RadioButtonProps extends React.ComponentPropsWithoutRef<"input"> {
   label?: string;
 }
 
-const RadioButton = forwardRef<HTMLInputElement, RadioProps>(
-  ({ label, ...props }: RadioProps, ref) => {
+const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
+  ({ label, ...props }: RadioButtonProps, ref) => {
     const groupContext = useContext(RadioGroupContext);
 
     const nameToUse = groupContext?.name ?? props.name;
