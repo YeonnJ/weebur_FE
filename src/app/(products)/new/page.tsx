@@ -43,6 +43,7 @@ const ProductNewPage = () => {
   };
 
   const discountedPrice = getDiscountedPrice();
+  const radioRegister = register("brand");
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.wrapper}>
@@ -98,12 +99,12 @@ const ProductNewPage = () => {
 
       <RadioGroup
         label="브랜드"
-        name="brand"
-        register={register("brand", { value: "Weebur" })}
+        name={radioRegister.name}
+        defaultValue="Weebur"
       >
-        <Radio label="Apple" value="Apple" />
-        <Radio label="Samsung" value="Samsung" />
-        <Radio label="Weebur" value="Weebur" />
+        <Radio {...radioRegister} label="Apple" value="Apple" />
+        <Radio {...radioRegister} label="Samsung" value="Samsung" />
+        <Radio {...radioRegister} label="Weebur" value="Weebur" />
       </RadioGroup>
 
       {price && (

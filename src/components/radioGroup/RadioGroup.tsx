@@ -20,19 +20,22 @@ export const RadioGroupContext = createContext<Pick<
 > | null>(null);
 
 const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
-  ({ required = false, label, children, onChange, ...props }, ref) => {
+  (
+    { label, value, defaultValue, children, onChange, register, ...props },
+    ref
+  ) => {
     const uid = useId();
     const nameToUse = props?.name ?? uid;
 
     const contextValue = useMemo(() => {
       return {
-        value: props.value,
-        defaultValue: props.defaultValue,
-        register: props.register,
+        value: value,
+        defaultValue: defaultValue,
+        register,
         name: nameToUse,
         onChange,
       };
-    }, [nameToUse, onChange, props.value, props.defaultValue, props.register]);
+    }, [nameToUse, register, onChange, value, defaultValue]);
 
     return (
       <fieldset
@@ -41,10 +44,7 @@ const RadioGroup = forwardRef<HTMLFieldSetElement, RadioGroupProps>(
         className={clsx(styles.wrapper, props.className)}
       >
         <RadioGroupContext.Provider value={contextValue}>
-          <legend className={styles.inputLabel}>
-            {label}
-            {required && <span className={styles.required}>*</span>}
-          </legend>
+          <legend className={styles.inputLabel}>{label}</legend>
           {children}
         </RadioGroupContext.Provider>
       </fieldset>
