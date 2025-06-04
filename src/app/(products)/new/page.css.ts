@@ -4,12 +4,11 @@ export const wrapper = style({
   padding: "0 20px",
   height: "100%",
   margin: "50px auto",
-  maxWidth: "700px",
+  maxWidth: "1024px",
 });
 
 export const resultPrice = style({
   width: "100%",
-  boxSizing: "border-box",
   display: "flex",
   flexDirection: "column",
   marginBottom: "10px",

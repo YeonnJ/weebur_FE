@@ -1,28 +1,23 @@
 import { style } from "@vanilla-extract/css";
 import { styleVariants } from "@vanilla-extract/css";
 
-export const container = style({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "flex-end",
-  margin: "0 auto",
-  maxWidth: "1200px",
-  marginTop: "50px",
-  width: "100%",
-});
-
 const baseListContainer = style({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
   width: "100%",
   marginTop: "10px",
+  padding: 0,
 });
 
 export const listContainer = styleVariants({
-  list: [baseListContainer],
+  list: [
+    baseListContainer,
+    {
+      display: "flex",
+      alignItems: "center",
+      flexDirection: "column",
+      justifyContent: "center",
+      gap: "10px",
+    },
+  ],
   grid: [
     baseListContainer,
     {

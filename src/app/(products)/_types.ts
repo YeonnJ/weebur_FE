@@ -48,10 +48,6 @@ export interface ProductListItemProps {
   item: Product;
 }
 
-export interface ProductListProps {
-  viewMode: ProductViewMode;
-}
-
 export interface ProductRequestBody {
   title: string;
   description: string;

@@ -9,7 +9,7 @@ const ProductListItem = ({ item, viewMode }: ProductListItemProps) => {
   return (
     <>
       {viewMode && (
-        <div className={styles.itemContainer[viewMode]}>
+        <li className={styles.itemContainer[viewMode]}>
           <Image
             src={item?.thumbnail || "/"}
             width={150}
@@ -19,7 +19,7 @@ const ProductListItem = ({ item, viewMode }: ProductListItemProps) => {
           />
 
           <div className={styles.itemContent}>
-            <h1 className={styles.itemTitle[viewMode]}>{item?.title || ""}</h1>
+            <h1 className={styles.title}>{item?.title || ""}</h1>
             <h2 className={styles.itemDescription[viewMode]}>
               {item?.description || ""}
             </h2>
@@ -30,7 +30,7 @@ const ProductListItem = ({ item, viewMode }: ProductListItemProps) => {
               </span>
             </p>
           </div>
-        </div>
+        </li>
       )}
     </>
   );

@@ -6,14 +6,14 @@ export const baseContainer = style({
   justifyContent: "flex-start",
   alignItems: "center",
   border: "1px solid rgb(219, 222, 226)",
-  marginBottom: "16px",
   borderRadius: "8px",
   cursor: "pointer",
   width: "100%",
 });
 
 export const itemContent = style({
-  padding: "10px",
+  padding: 10,
+  width: "100%",
 });
 
 export const itemContainer = styleVariants({
@@ -29,7 +29,13 @@ export const description = style({
 
 export const itemDescription = styleVariants({
   list: [description],
-  grid: [description, { height: "90px", overflow: "auto" }],
+  grid: [
+    description,
+    {
+      overflow: "hidden",
+      textOverflow: "ellipsis",
+    },
+  ],
 });
 
 export const thumbnail = style({
@@ -40,15 +46,7 @@ export const title = style({
   fontSize: "16px",
   fontWeight: 600,
   color: "rgb(32, 39, 49)",
-  whiteSpace: "wrap",
-  overflow: "hidden",
-  textOverflow: "ellipsis",
-  maxWidth: "260px",
-});
-
-export const itemTitle = styleVariants({
-  list: [title],
-  grid: [title, { whiteSpace: "nowrap" }],
+  width: "100%",
 });
 
 export const rating = style({
