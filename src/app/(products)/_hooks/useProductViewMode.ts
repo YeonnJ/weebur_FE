@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getRandomViewMode } from "@/app/(products)/utils/getRandomViewMode";
+import { getRandomViewMode } from "@/app/(products)/_utils/getRandomViewMode";
 import { ProductViewMode } from "@/app/(products)/_types";
 
 const STORAGE_KEY = "productViewMode";

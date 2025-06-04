@@ -7,6 +7,7 @@ import RadioGroup from "./_components/radioGroup/RadioGroup";
 import { useCreateProduct } from "../_queries";
 import * as styles from "./page.css";
 import { useRouter } from "next/navigation";
+import Button from "@/components/button/Button";
 
 const CreateProductPage = () => {
   const {
@@ -27,8 +28,6 @@ const CreateProductPage = () => {
       },
     });
   };
-
-  console.log("error", Object.keys(errors));
 
   const price = watch("price");
   const discountPercentage = watch("discountPercentage");
@@ -124,12 +123,9 @@ const CreateProductPage = () => {
         </div>
       )}
 
-      <input
-        type="submit"
-        value="제출"
-        className={styles.submit}
-        disabled={!isValid}
-      />
+      <Button fullWidth type="submit" disabled={!isValid}>
+        제출
+      </Button>
     </form>
   );
 };
