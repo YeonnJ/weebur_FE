@@ -7,7 +7,7 @@ interface RadioProps extends React.ComponentPropsWithoutRef<"input"> {
   label?: string;
 }
 
-const Radio = forwardRef<HTMLInputElement, RadioProps>(
+const RadioButton = forwardRef<HTMLInputElement, RadioProps>(
   ({ label, ...props }: RadioProps, ref) => {
     const groupContext = useContext(RadioGroupContext);
 
@@ -52,5 +52,5 @@ const Radio = forwardRef<HTMLInputElement, RadioProps>(
   }
 );
 
-Radio.displayName = "Radio";
-export default Radio;
+RadioButton.displayName = "RadioButton";
+export default RadioButton;
