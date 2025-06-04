@@ -10,3 +10,10 @@ export const productsMainPageContainer = style({
   marginTop: "50px",
   width: "100%",
 });
+
+export const productsNewPageContainer = style({
+  padding: "0 20px",
+  height: "100%",
+  margin: "50px auto",
+  maxWidth: "1024px",
+});
