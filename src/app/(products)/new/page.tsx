@@ -4,12 +4,12 @@ import { Controller, useForm } from "react-hook-form";
 import { ProductRequestBody } from "@/app/(products)/_types";
 import FormInput from "@/components/formInput/FormInput";
 import { useCreateProductMutation } from "../_queries";
-import * as styles from "./page.css";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button/Button";
 import Radio from "@/components/radio/Radio";
 import ProductPriceInfo from "./_components/productPriceInfo/ProductPriceInfo";
 import { getNumricString } from "@/utils/string";
+import * as styles from "../_components/layout/layout.css";
 
 const ProductNewPage = () => {
   const router = useRouter();
@@ -52,7 +52,10 @@ const ProductNewPage = () => {
   const radioRegister = register("brand");
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={styles.wrapper}>
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className={styles.productsNewPageContainer}
+    >
       <FormInput
         required
         label="상품명"
