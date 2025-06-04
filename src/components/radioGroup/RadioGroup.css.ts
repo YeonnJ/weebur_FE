@@ -1,6 +1,6 @@
 import { style } from "@vanilla-extract/css";
 
-export const wrapper = style({
+export const radioGroup = style({
   display: "flex",
   justifyContent: "flex-start",
   alignItems: "center",
@@ -10,17 +10,11 @@ export const wrapper = style({
   padding: 0,
 });
 
-export const inputLabel = style({
+export const radioGroupLegend = style({
   color: "#424242",
   fontSize: "12px",
   fontWeight: 500,
   display: "contents",
   justifyContent: "center",
   alignItems: "center",
-});
-
-export const required = style({
-  color: "red",
-  fontSize: "14px",
-  marginLeft: "1px",
 });
