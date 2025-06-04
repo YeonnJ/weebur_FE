@@ -12,15 +12,12 @@ type ButtonDefaultProps = ButtonProps &
   React.ComponentPropsWithoutRef<"button">;
 
 const ButtonDefault = forwardRef<HTMLButtonElement, ButtonDefaultProps>(
-  (
-    { children, className, fullWidth = false, ...props }: ButtonDefaultProps,
-    ref
-  ) => {
+  ({ children, fullWidth = false, ...props }: ButtonDefaultProps, ref) => {
     return (
       <button
         {...props}
         ref={ref}
-        className={clsx(styles.button({ fullWidth }), className)}
+        className={clsx(styles.button({ fullWidth }), props.className)}
       >
         {children}
       </button>
@@ -34,12 +31,12 @@ type ButtonLinkProps = ButtonProps &
   React.ComponentPropsWithoutRef<typeof Link>;
 
 const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
-  ({ children, fullWidth = false, className, ...props }, ref) => {
+  ({ children, fullWidth = false, ...props }, ref) => {
     return (
       <Link
         {...props}
         ref={ref}
-        className={clsx(styles.button({ fullWidth }), className)}
+        className={clsx(styles.button({ fullWidth }), props.className)}
       >
         {children}
       </Link>
