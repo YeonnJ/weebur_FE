@@ -6,6 +6,8 @@ export const wrapper = style({
   alignItems: "center",
   width: "100%",
   margin: "10px auto",
+  border: "none",
+  padding: 0,
 });
 
 export const inputLabel = style({
@@ -15,11 +17,6 @@ export const inputLabel = style({
   display: "contents",
   justifyContent: "center",
   alignItems: "center",
-});
-
-export const radioItem = style({
-  color: "#424242",
-  fontSize: "10px",
 });
 
 export const required = style({
