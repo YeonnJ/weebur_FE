@@ -2,13 +2,12 @@
 
 import { useForm } from "react-hook-form";
 import { ProductRequestBody } from "@/app/(products)/_types";
-import FormInput from "../../../components/formInput/FormInput";
+import FormInput from "@/components/formInput/FormInput";
 import { useCreateProductMutation } from "../_queries";
 import * as styles from "./page.css";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button/Button";
-import RadioGroup from "../../../components/radioGroup/RadioGroup";
-import Radio from "@/components/radioGroup/Radio";
+import Radio from "@/components/radio/Radio";
 
 const ProductNewPage = () => {
   const {
@@ -97,7 +96,7 @@ const ProductNewPage = () => {
         placeholder="할인율을 입력해주세요."
       />
 
-      <RadioGroup
+      <Radio.Group
         label="브랜드"
         name={radioRegister.name}
         defaultValue="Weebur"
@@ -105,7 +104,7 @@ const ProductNewPage = () => {
         <Radio {...radioRegister} label="Apple" value="Apple" />
         <Radio {...radioRegister} label="Samsung" value="Samsung" />
         <Radio {...radioRegister} label="Weebur" value="Weebur" />
-      </RadioGroup>
+      </Radio.Group>
 
       {price && (
         <div className={styles.resultPrice}>
