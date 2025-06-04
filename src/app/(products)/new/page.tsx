@@ -5,16 +5,18 @@ import { ProductRequestBody } from "@/app/(products)/_types";
 import FormInput from "./_components/formInput/FormInput";
 import RadioGroup from "./_components/radioGroup/RadioGroup";
 import { useCreateProduct } from "../_queries";
-import * as styles from "./ProductFormPage.css";
+import * as styles from "./page.css";
 import { useRouter } from "next/navigation";
 
 const CreateProductPage = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     watch,
-  } = useForm<ProductRequestBody>();
+  } = useForm<ProductRequestBody>({
+    mode: "onChange",
+  });
   const { mutate: create } = useCreateProduct();
   const router = useRouter();
 
@@ -26,6 +28,8 @@ const CreateProductPage = () => {
     });
   };
 
+  console.log("error", Object.keys(errors));
+
   const price = watch("price");
   const discountPercentage = watch("discountPercentage");
 
@@ -35,7 +39,7 @@ const CreateProductPage = () => {
         Number(price) - (Number(price) * Number(discountPercentage)) / 100;
       return Math.floor(discounted);
     }
-    return null;
+    return Number(price).toLocaleString();
   };
 
   const discountedPrice = getDiscountedPrice();
@@ -43,6 +47,7 @@ const CreateProductPage = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.wrapper}>
       <FormInput
+        required={true}
         label="상품명"
         register={register("title", {
           required: "상품명은 필수입니다.",
@@ -56,12 +61,14 @@ const CreateProductPage = () => {
       />
 
       <FormInput
+        required={false}
         label="상품설명"
         register={register("description")}
         placeholder="상품설명을 입력해주세요."
       />
 
       <FormInput
+        required={true}
         label="상품가격"
         type="number"
         register={register("price", {
@@ -76,6 +83,7 @@ const CreateProductPage = () => {
       />
 
       <FormInput
+        required={false}
         label="상품할인율"
         type="number"
         register={register("discountPercentage", {
@@ -89,6 +97,7 @@ const CreateProductPage = () => {
       />
 
       <RadioGroup
+        required={true}
         name="brand"
         register={register("brand")}
         defaultValue="Weebur"
@@ -99,11 +108,28 @@ const CreateProductPage = () => {
         ]}
       />
 
-      {discountedPrice !== null && !isNaN(discountedPrice) && (
-        <p>상품 최종가격: {discountedPrice.toLocaleString()}원</p>
+      {price && (
+        <div className={styles.resultPrice}>
+          <p className={styles.price}>{Number(price).toLocaleString()}원</p>
+
+          <div className={styles.priceContainer}>
+            <p className={styles.discount}>
+              {discountPercentage?.toLocaleString() || 0}%
+            </p>
+            <p className={styles.totalPrice}>
+              {discountedPrice !== null &&
+                `${discountedPrice.toLocaleString()}원`}
+            </p>
+          </div>
+        </div>
       )}
 
-      <input type="submit" value="제출" className={styles.submit} />
+      <input
+        type="submit"
+        value="제출"
+        className={styles.submit}
+        disabled={!isValid}
+      />
     </form>
   );
 };

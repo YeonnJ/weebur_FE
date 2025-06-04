@@ -1,23 +1,32 @@
 import { UseFormRegisterReturn } from "react-hook-form";
 import * as styles from "./RadioGroup.css";
 
-type Option = {
+interface Option {
   label: string;
   value: string;
-};
+}
 
 interface RadioGroupProps {
   name: string;
   options: Option[];
   register: UseFormRegisterReturn;
+  required: boolean;
   defaultValue?: string;
 }
 
-const RadioGroup = ({ options, register, defaultValue }: RadioGroupProps) => {
+const RadioGroup = ({
+  options,
+  register,
+  defaultValue,
+  required,
+}: RadioGroupProps) => {
   return (
     <>
       <div className={styles.wrapper}>
-        <p className={styles.inputLabel}>브랜드</p>
+        <p className={styles.inputLabel}>
+          브랜드
+          {required && <div className={styles.required}>*</div>}
+        </p>
 
         {options.map((opt) => (
           <label key={opt.value} className={styles.inputLabel}>

@@ -21,3 +21,9 @@ export const radioItem = style({
   color: "#424242",
   fontSize: "10px",
 });
+
+export const required = style({
+  color: "red",
+  fontSize: "14px",
+  marginLeft: "1px",
+});
