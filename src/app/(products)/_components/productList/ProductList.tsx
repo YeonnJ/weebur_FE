@@ -5,7 +5,7 @@ import { useProductsQuery } from "../../_queries";
 import ProductListItem from "./ProductListItem";
 import * as styles from "./ProductList.css";
 import { ProductListProps } from "../../_types";
-import ButtonLink from "@/app/ButtonLink/ButtonLink";
+import Button from "@/components/button/Button";
 
 const ProductList = ({ viewMode }: ProductListProps) => {
   const productsQuery = useProductsQuery();
@@ -15,7 +15,7 @@ const ProductList = ({ viewMode }: ProductListProps) => {
     <>
       {viewMode && (
         <div className={styles.container}>
-          <ButtonLink href={"/new"}>상품 등록하기</ButtonLink>
+          <Button.Link href={"/new"}>상품 등록하기</Button.Link>
 
           <div className={styles.listContainer[viewMode]}>
             {products.map((item) => (

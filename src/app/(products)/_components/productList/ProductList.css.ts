@@ -9,6 +9,7 @@ export const container = style({
   margin: "0 auto",
   maxWidth: "1200px",
   marginTop: "50px",
+  width: "100%",
 });
 
 const baseListContainer = style({
@@ -27,7 +28,7 @@ export const listContainer = styleVariants({
     {
       display: "grid",
       gridTemplateColumns: "repeat(4, 1fr)",
-      gap: "20px",
+      gap: "10px",
     },
   ],
 });

@@ -25,7 +25,7 @@ const RadioGroup = ({
       <div className={styles.wrapper}>
         <p className={styles.inputLabel}>
           브랜드
-          {required && <div className={styles.required}>*</div>}
+          {required && <span className={styles.required}>*</span>}
         </p>
 
         {options.map((opt) => (
