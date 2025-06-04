@@ -4,12 +4,13 @@ export const label = style({
   color: "#424242",
   fontSize: "12px",
   fontWeight: 500,
-  display: "contents",
+  display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  gap: 4,
 });
 
 export const radio = style({
   color: "#424242",
-  fontSize: "10px",
+  margin: 0,
 });
