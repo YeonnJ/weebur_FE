@@ -2,14 +2,14 @@
 
 import { useForm } from "react-hook-form";
 import { ProductRequestBody } from "@/app/(products)/_types";
-import FormInput from "./_components/formInput/FormInput";
-import RadioGroup from "./_components/radioGroup/RadioGroup";
+import FormInput from "../../../components/formInput/FormInput";
 import { useCreateProductMutation } from "../_queries";
 import * as styles from "./page.css";
 import { useRouter } from "next/navigation";
 import Button from "@/components/button/Button";
+import RadioGroup from "./_components/radioGroup/RadioGroup";
 
-const CreateProductPage = () => {
+const ProductNewPage = () => {
   const {
     register,
     handleSubmit,
@@ -130,4 +130,4 @@ const CreateProductPage = () => {
   );
 };
 
-export default CreateProductPage;
+export default ProductNewPage;

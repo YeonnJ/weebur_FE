@@ -9,7 +9,6 @@ const buttonBase = style({
   backgroundColor: "#0070f3",
   color: "white",
   cursor: "pointer",
-  transition: "background-color 0.2s ease",
   textDecoration: "none",
   selectors: {
     "&:hover": {
