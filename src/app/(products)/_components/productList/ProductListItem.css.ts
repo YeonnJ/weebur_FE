@@ -12,14 +12,13 @@ export const baseContainer = style({
   width: "100%",
 });
 
+export const itemContent = style({
+  padding: "10px",
+});
+
 export const itemContainer = styleVariants({
   list: [baseContainer],
   grid: [baseContainer, { flexDirection: "column" }],
-});
-
-export const itemContent = styleVariants({
-  list: [],
-  grid: [{ padding: "10px" }],
 });
 
 export const description = style({
@@ -41,10 +40,15 @@ export const title = style({
   fontSize: "16px",
   fontWeight: 600,
   color: "rgb(32, 39, 49)",
-  whiteSpace: "nowrap",
+  whiteSpace: "wrap",
   overflow: "hidden",
   textOverflow: "ellipsis",
   maxWidth: "260px",
+});
+
+export const itemTitle = styleVariants({
+  list: [title],
+  grid: [title, { whiteSpace: "nowrap" }],
 });
 
 export const rating = style({

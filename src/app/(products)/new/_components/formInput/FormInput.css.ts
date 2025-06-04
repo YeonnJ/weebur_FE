@@ -28,4 +28,11 @@ export const inputLabel = style({
   fontSize: "12px",
   margin: "10px 0 0 0",
   fontWeight: 500,
+  display: "flex",
+});
+
+export const required = style({
+  color: "red",
+  fontSize: "14px",
+  marginLeft: "1px",
 });
