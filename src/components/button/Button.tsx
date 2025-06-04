@@ -30,7 +30,8 @@ const ButtonDefault = forwardRef<HTMLButtonElement, ButtonDefaultProps>(
 
 ButtonDefault.displayName = "ButtonDefault";
 
-type ButtonLinkProps = ButtonProps & React.ComponentProps<typeof Link>;
+type ButtonLinkProps = ButtonProps &
+  React.ComponentPropsWithoutRef<typeof Link>;
 
 const ButtonLink = forwardRef<HTMLAnchorElement, ButtonLinkProps>(
   ({ children, fullWidth = false, className, ...props }, ref) => {
