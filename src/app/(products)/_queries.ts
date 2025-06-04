@@ -1,6 +1,5 @@
 import { useMutation, useSuspenseQuery } from "@tanstack/react-query";
 import { productApis } from "./_apis";
-import { ProductRequestBody } from "./_types";
 
 const PRODUCTS_KEY = ["products"] as const;
 
@@ -16,8 +15,8 @@ export const useProductsQuery = () => {
   });
 };
 
-export const useCreateProduct = () => {
+export const useProductMutation = () => {
   return useMutation({
-    mutationFn: (data: ProductRequestBody) => productApis.postProducts(data),
+    mutationFn: productApis.postProducts,
   });
 };
