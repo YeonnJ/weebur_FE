@@ -46,7 +46,7 @@ const RadioButton = forwardRef<HTMLInputElement, RadioButtonProps>(
           className={clsx(styles.radio, props.className)}
           onChange={handleChange}
         />
-        {label}
+        <span>{label}</span>
       </label>
     );
   }

@@ -100,6 +100,7 @@ const ProductNewPage = () => {
         label="브랜드"
         name={radioRegister.name}
         defaultValue="Weebur"
+        style={{ gap: "10px", margin: "10px 0" }}
       >
         <Radio {...radioRegister} label="Apple" value="Apple" />
         <Radio {...radioRegister} label="Samsung" value="Samsung" />
