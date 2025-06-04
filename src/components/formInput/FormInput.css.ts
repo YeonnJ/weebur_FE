@@ -19,7 +19,6 @@ export const input = style({
   height: "48px",
   borderRadius: "8px",
   marginBottom: "10px",
-  boxSizing: "border-box",
   margin: "5px auto",
 });
 
