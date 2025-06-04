@@ -43,11 +43,6 @@ export interface ProductResponse {
 
 export type ProductViewMode = "list" | "grid" | null;
 
-export interface ProductListItemProps {
-  viewMode: ProductViewMode;
-  item: Product;
-}
-
 export interface ProductRequestBody {
   title: string;
   description: string;
