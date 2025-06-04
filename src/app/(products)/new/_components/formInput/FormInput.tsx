@@ -25,7 +25,7 @@ const FormInput = ({
     <>
       <p className={styles.inputLabel}>
         {label}
-        {required && <div className={styles.required}>*</div>}
+        {required && <span className={styles.required}>*</span>}
       </p>
 
       <input

@@ -39,21 +39,3 @@ export const discount = style({
   fontWeight: 600,
   margin: 0,
 });
-
-export const submit = style({
-  width: "100%",
-  border: "1px solid rgb(219, 222, 226)",
-  padding: "10px",
-  backgroundColor: "#0070f3",
-  color: "white",
-  cursor: "pointer",
-  selectors: {
-    "&:hover": {
-      backgroundColor: "#0059c1",
-    },
-    "&:disabled": {
-      backgroundColor: "#c9c9c9",
-      cursor: "not-allowed",
-    },
-  },
-});
