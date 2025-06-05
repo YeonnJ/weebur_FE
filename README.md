@@ -39,17 +39,16 @@ src
 │   │   ├── _hooks             # 상품 도메인 전용 훅
 │   │   ├── _utils             # 상품 도메인 전용 유틸
 │   │   ├── new                # 상품 생성 페이지
-│   │   │   ├── _apis.ts
-│   │   │   ├── _queries.ts
-│   │   │   ├── _types.ts
-│   │   │   ├── layout.tsx
-│   │   │   ├── loading.tsx
+│   │   │   ├── _components
 │   │   │   └── page.tsx
+│   │   ├── _api.ts
+│   │   ├── _queries.ts
+│   │   ├── _types.ts
 │   │   ├── layout.tsx
-│   │   └── providers.tsx
+│   │   ├── loading.tsx
+│   │   └── page.tsx
 │   ├── layout.tsx
-│   ├── loading.tsx
-│   └── page.tsx
+│   └── providers.tsx
 ├── components                # 공용 UI 컴포넌트
 │   ├── button
 │   ├── formInput
@@ -58,11 +57,10 @@ src
 │   └── HydrationBoundary.tsx
 ├── styles                    # 전역 스타일
 │   └── global.css.ts
-├── utils                     # 공통 유틸 함수
-│   ├── fetchAPI.ts
-│   └── string.ts
-public
-└── favicon.ico
+└── utils                     # 공통 유틸 함수
+    ├── fetchAPI.ts
+    └── string.ts
+
 ```
 
 > **개발자 경험(Developer Experience, DX) 향상을 위해**  
@@ -113,7 +111,7 @@ public
 
 ### ❗ `react-hook-form` maxLength 미적용 이슈
 
-- `input` 요소의 `maxLength`가 동작하지 않는 문제 발생
+- `input요소`의 "type=number"인 경우, 숫자만 입력해야되는 요구사항에서 `maxLength`가 동작하지 않는 문제 발생
 - `Controller`를 통해 입력 값을 제어하고, 15자를 초과하는 입력 자체를 막아 명확한 유효성 검사 구현
 
 ### ♻️ 컴포넌트 재사용성 강화
